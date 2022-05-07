@@ -7,18 +7,18 @@ import {useRouter} from "next/router"
 
 const Layout = ({ children }) => {
     const router = useRouter()
-
-    console.log(router.pathname);
+    // console.log(router.pathname);
+    const p = router.pathname;
 
     return (
         <div>
             <Navbar className={styles.navbar} bg="dark" variant="dark" fixed='top' >
                 <Container>
-                    <Navbar.Brand href="/"><img width={33} src={"/favicon.ico"}/> تاپ فیلم</Navbar.Brand>
+                    <Navbar.Brand href="/"><img width={33} src={"/img/meratLogo.png"}/> مرات یار</Navbar.Brand>
                     <Divider style={{backgroundColor:"white !important"}} type="vertical"/>
                     <Nav className="me-auto">
-                        <Link href={"/"}><Nav.Link active={router.pathname === "/"} href="/">خانه</Nav.Link></Link>
-                        <Link href="/ggg"><Nav.Link active={router.pathname.split("/")[1] == "ggg"} href="/ggg">فیلم ها</Nav.Link></Link>
+                        <Link href={"/"}><Nav.Link active={p === "/"} href="/">خانه</Nav.Link></Link>
+                        <Link href="/ggg"><Nav.Link active={p.split("/")[1] == "ggg"} href="/ggg">فیلم ها</Nav.Link></Link>
                         <Link href="/pricing" >pricing</Link>
                     </Nav>
                 </Container>
