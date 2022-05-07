@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 export default function Home({ppp}) {
-  // console.log(users[1]);
+  console.log(ppp);
   return (
     <div className={styles.container}>
       <Head>
@@ -26,7 +26,7 @@ export default function Home({ppp}) {
 }
 
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const res = await fetch('http://meratkish.ir/wp-json/wp/v2/posts');
   // const res = await ax('https://jsonplaceholder.typicode.com/users');
   const ppp = await res.json();
