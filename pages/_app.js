@@ -2,13 +2,13 @@ import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 import 'swiper/css';
-import Layout from '../components/Layout';
+import Layout2 from '../components/Layout2';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
+    <Layout2>
       <Component {...pageProps} />
-    </Layout>
+    </Layout2>
   );
 }
 
