@@ -17,7 +17,7 @@ export default function Home({ppp}) {
         </h1>
         <hr></hr>
         {
-            ppp.map((p, i)=>{return ( <i key={i}> {p.id} <br /> </i> )})
+            ppp.map((p, i)=>{return ( <i key={i}> {p.title.rendered} <br /> </i> )})
         }
       </main>
 
