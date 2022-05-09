@@ -1,5 +1,9 @@
 .navbar {
     direction: rtl;
+    background-color: #0b8eb75e;
+}
+.nav {
+    direction: rtl;
 }
 .auth_btn {
     width: 100px;
