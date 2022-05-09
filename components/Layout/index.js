@@ -12,11 +12,11 @@ const Layout = ({ children }) => {
 
     return (
         <div>
-            <Navbar className={styles.navbar} bg="dark" variant="dark" fixed='top' >
+            <Navbar className={styles.navbar} fixed='top' >
                 <Container>
-                    <Navbar.Brand href="/"><img width={33} src={"/img/meratLogo.png"}/> مرات یار</Navbar.Brand>
+                    <Navbar.Brand href="/"><img src={"/img/meratLogo.png"}/> مرات یار</Navbar.Brand>
                     <Divider style={{backgroundColor:"white !important"}} type="vertical"/>
-                    <Nav className="me-auto">
+                    <Nav className={styles.nav}>
                         <Link href={"/"}><Nav.Link active={p === "/"} href="/">خانه</Nav.Link></Link>
                         <Link href="/ggg"><Nav.Link active={p.split("/")[1] == "ggg"} href="/ggg">فیلم ها</Nav.Link></Link>
                         <Link href="/pricing" >pricing</Link>
