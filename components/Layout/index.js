@@ -1,5 +1,6 @@
 import { Divider } from "antd";
 import Link from 'next/link';
+import IMG from 'next/image';
 import React from 'react';
 import { Nav, Container, Navbar, Button } from 'react-bootstrap';
 import styles from "./layout.module.css"
@@ -14,7 +15,7 @@ const Layout = ({ children }) => {
         <div>
             <Navbar className={styles.navbar} fixed='top' >
                 <Container>
-                    <Navbar.Brand href="/"><img src={"/img/meratLogo.png"}/> مرات یار</Navbar.Brand>
+                    <Navbar.Brand href="/"><IMG src={"/img/meratLogo.png"} width='170px' height='71px' /> مرات یار</Navbar.Brand>
                     <Divider style={{backgroundColor:"white !important"}} type="vertical"/>
                     <Nav className={styles.nav}>
                         <Link href={"/"}><Nav.Link active={p === "/"} href="/">خانه</Nav.Link></Link>
