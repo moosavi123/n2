@@ -1,6 +1,6 @@
 .myheader {
     direction: rtl;
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     height: 77px;
 }
@@ -18,7 +18,8 @@
 .site_layout_content {
     min-height: 280px;
     padding: 24px;
-    background: #fff;
+    background: rgb(146, 209, 95);
+    direction: rtl;
 }
 
 
