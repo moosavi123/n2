@@ -12,6 +12,12 @@ export default function Home({ppp}) {
       </Head>
 
       <main className={styles.main}>
+        <h6>به مرات یار خوش آمدید</h6>
+        <h5>به مرات یار خوش آمدید</h5>
+        <h4>به مرات یار خوش آمدید</h4>
+        <h3>به مرات یار خوش آمدید</h3>
+        <h2>به مرات یار خوش آمدید</h2>
+        <h1>به مرات یار خوش آمدید</h1>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
