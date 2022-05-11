@@ -22,7 +22,7 @@ const items = [
   getItem(<Link href='/chatroom'>پنل کاربری</Link>, '10'),
 ];
 
-export default ({ children }) => (
+const Layout2 = ({ children }) => (
   <Layout className="layoutyyy">
     <Header className={st2.myheader}>
       <div className={st2.logo}>
@@ -43,3 +43,5 @@ export default ({ children }) => (
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
   </Layout>
 );
+
+export default Layout2;
