@@ -26,7 +26,7 @@ export default ({ children }) => (
   <Layout className="layoutyyy">
     <Header className={st2.myheader}>
       <div className={st2.logo}>
-          <IMG src={"/img/meratLogo.png"} width='170px' height='71px' ></IMG>
+          <IMG src={"/img/meratLogo.png"} width='170px' height='71px' alt='merat' ></IMG>
       </div>
 
       <Menu className={st2.mymenu} mode='horizontal' theme='dark' items={items} />
