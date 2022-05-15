@@ -11,15 +11,15 @@ function getItem(label, key, icon, children, type) {
 
 const items = [
   getItem(<Link href='/'>خانه</Link>, '1'),
-  getItem('فروشگاه ▼', '2', null, [getItem('سبد خرید', '21'), getItem('پرداخت', '22')]),
+  getItem('فروشگاه ▼', '2', null, [getItem(<Link href='/test'>سبد خرید</Link>, '21'), getItem('پرداخت', '22')]),
   getItem(<Link href='/nazarSanji'>نظرسنجی</Link>, '3'),
-  getItem(<Link href='/chatroom'>چت روم</Link>, '4'),
+  getItem(<Link href='/ggg'>چت روم</Link>, '4'),
   getItem('پزشکی ▼', '5', null, [getItem('معاینات و چک آپ منظم پزشکی', '51'), getItem('ارتباط با درمانگاها', '52')]),
   getItem('آموزش ▼', '6', null, [getItem('مشاوره کسب و کار', '61'), getItem('مشاوره کنکور', '62')]),
   getItem('آکادمی فولاد ▼', '7', null, [getItem('سبد خرید', '71'), getItem('پرداخت', '72')]),
-  getItem(<Link href='/chatroom'>باشگاه مشتریان</Link>, '8'),
+  getItem(<Link href='/pricing'>باشگاه مشتریان</Link>, '8'),
   getItem('رزرو هتل ▼', '9', null, [getItem('هتل مرات مشهد', '91'), getItem('هتل ملیسا مشهد', '92')]),
-  getItem(<Link href='/chatroom'>پنل کاربری</Link>, '10'),
+  getItem(<Link href='/foolad'>پنل کاربری</Link>, '10'),
 ];
 
 const Layout2 = ({ children }) => (
