@@ -1,8 +1,9 @@
 import { Carousel } from 'antd'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import { connectToDatabase } from "../util/mongodb";
 
-export default function Home() {
+export default function Home({isConnected}) {
   const contentStyle = {
     height: '160px',
     color: '#fff',
@@ -10,6 +11,9 @@ export default function Home() {
     textAlign: 'center',
     background: '#364d79',
   };
+
+  console.log(isConnected , ": status of db");
+
   return (
     <div className={styles.container}>
       <Head>
@@ -50,3 +54,14 @@ export default function Home() {
   )
 }
 
+export async function getServerSideProps(context) {
+  const { client } = await connectToDatabase();
+
+  const isConnected = await client.isConnected();
+
+  return {
+    props: {
+      isConnected,
+    },
+  };
+}
