@@ -1,9 +1,8 @@
 import { Carousel } from 'antd'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { connectToDatabase } from "../util/mongodb";
 
-export default function Home({isConnected}) {
+export default function Home({posts}) {
   const contentStyle = {
     height: '160px',
     color: '#fff',
@@ -11,8 +10,6 @@ export default function Home({isConnected}) {
     textAlign: 'center',
     background: '#364d79',
   };
-
-  console.log(isConnected , ": status of db");
 
   return (
     <div className={styles.container}>
@@ -22,18 +19,12 @@ export default function Home({isConnected}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Carousel autoplay>
-        <div>
-          <h3 style={contentStyle}>1</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>2</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>3</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>4</h3>
-        </div>
+          
+          {
+            posts.map((post, i) => (
+              <div key={i}><h3 style={contentStyle} ><i> { post._id } </i> { post.title }  { post.content } </h3></div>
+          ))
+          }
       </Carousel>
       <main className={styles.main}>
         
@@ -54,14 +45,16 @@ export default function Home({isConnected}) {
   )
 }
 
-export async function getServerSideProps(context) {
-  const { client } = await connectToDatabase();
+export async function getServerSideProps(ctx) {
 
-  const isConnected = await client.isConnected();
+    let dev = process.env.NODE_ENV !== 'production';
+    let { DEV_URL, PROD_URL } = process.env;
+    let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/posts`);
+    let data = await response.json();
 
-  return {
-    props: {
-      isConnected,
-    },
-  };
+    return {
+        props: {
+            posts: data['message'],
+        },
+    };
 }
