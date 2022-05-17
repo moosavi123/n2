@@ -1,16 +1,19 @@
 import React from 'react';
+import { Carousel } from 'antd';
+import IMG from 'next/image';
 
 const foolad = ( {ppp} ) => {
     return ( 
       <>
-          {
-          ppp.map((p, i)=>{
-              return (
-                  <img key={i} src={p.source_url} alt={p.slug} />
-                  // <IMG key={i} src={p.source_url} alt={p.slug} layout='fill' />
-              )
-          })
-          }
+            <Carousel autoplay>
+            {
+              ppp.map((p, i) => (
+                <div key={i}>
+                    <IMG src={p.source_url} alt={p.slug} height={500} width={1100} />
+                </div>
+            ))
+            }
+            </Carousel>
       </>
      );
 }
