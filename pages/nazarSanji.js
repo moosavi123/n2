@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Menu, Button } from 'antd';
 import {
   AppstoreOutlined,
@@ -11,16 +12,11 @@ import {
 } from '@ant-design/icons';
 
 function getItem(label, key, icon, children, type) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  };
+  return { key,icon,children,label,type, };
 }
 
 const items = [
+  getItem('فروشگاه ▼', '2', null, [getItem(<Link href='/test'>سبد خرید</Link>, '21'), getItem('پرداخت', '22')]),
   getItem('Option 1', '1', <PieChartOutlined />),
   getItem('Option 2', '2', <DesktopOutlined />),
   getItem('Option 3', '3', <ContainerOutlined />),
@@ -45,28 +41,16 @@ const App = () => {
   };
 
   return (
-    <div
-      style={{
-        width: 256,
-      }}
-    >
-      <Button
-        type="primary"
-        onClick={toggleCollapsed}
-        style={{
-          marginBottom: 6,
-        }}
-      >
+    <div style={{width: 256,}}>
+      <Button type="primary" onClick={toggleCollapsed} style={{marginBottom: 6,}}>
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </Button>
       <Menu
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
-        mode="inline"
-        theme="dark"
+        mode="inline" theme="dark"
         inlineCollapsed={collapsed}
-        items={items}
-      />
+        items={items} />
     </div>
   );
 };
