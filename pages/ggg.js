@@ -7,8 +7,10 @@ const ggg = ( {ppp} ) => {
             <Carousel autoplay>
             {
               ppp.map((p, i) => (
-                <div key={i}>
-                    <IMG src={p.source_url} alt={p.slug} height={500} width={1100} />
+                <div key={i} style={{textAlign:'center'}} >
+                    <IMG src={p.media_details.sizes.medium_large.source_url} alt={p.slug} height={300} width={700} />
+                    <br />
+                    <a href={p.link}> {p.title.rendered} </a>
                 </div>
             ))
             }
