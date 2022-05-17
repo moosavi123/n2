@@ -1,4 +1,5 @@
 import React from 'react';
+import IMG from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import 'swiper/css';
@@ -22,7 +23,9 @@ const test = ({ppp}) => {
             >
                 {
                 ppp.map((el, i) => {
-                    return <SwiperSlide key={i}> <img src={el.source_url} width='500' /> </SwiperSlide>;
+                    return (<SwiperSlide key={i}>
+                        <IMG src={el.source_url} alt={el.slug} height={500} width={1100} />
+                    </SwiperSlide>);
                 })
                 }
             </Swiper>
