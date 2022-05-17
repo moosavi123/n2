@@ -2,6 +2,8 @@ import { Carousel, Col, Row, Menu, Button } from 'antd'
 import React from 'react';
 import Head from 'next/head'
 import Link from 'next/link';
+import IMG from 'next/image';
+
 import { MenuUnfoldOutlined, MenuFoldOutlined, } from '@ant-design/icons';
 import styles from '../styles/Home.module.css'
 
@@ -21,7 +23,9 @@ const items = [
   getItem(<Link href='/foolad'>پنل کاربری</Link>, '10'),
 ];
 
-export default function Home({posts}) {
+export default function Home( props ) {
+  console.log(props.media);
+  console.log(props);
   const contentStyle = {
     height: '160px',
     color: '#fff',
@@ -43,7 +47,7 @@ export default function Home({posts}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Row>
-        <Col span={5}>
+        <Col span={5} >
           <div style={{widthy: 220,}}>
             <Menu
               defaultSelectedKeys={['2']}
@@ -57,17 +61,35 @@ export default function Home({posts}) {
 
           </div>
         </Col>
-        <Col span={19}>
+        <Col span={18} style={{marginRight:'9px'}} >
           <Carousel autoplay>
             {
-              posts.map((post, i) => (
-                <div key={i}><h3 style={contentStyle} > { post.title.rendered } </h3></div>
+              props.media.map((p, i) => (
+                <div key={i} style={{textAlign:'center'}} >
+                    <IMG src={p.media_details.sizes.medium_large.source_url} alt={p.slug} height={300} width={700} />
+                    <br />
+                    <a href={p.link}> {p.title.rendered} </a>
+                </div>
             ))
+            }
+          </Carousel>
+          <Carousel autoplay>
+            {
+              props.posts.map((post, i) => (
+                <div key={i}>
+                  <h4 style={contentStyle} > { post.title.rendered } </h4>
+                  
+                </div>
+              ))
             }
           </Carousel>
         </Col>
       </Row>
-      
+      <Row>
+        <Col span={8}>
+            aaaaaaaaaaaa
+        </Col>
+      </Row>
       
     </div>
   )
@@ -80,9 +102,11 @@ export async function getStaticProps(ctx) {
     // let data = await response.json();
     const res = await fetch('http://meratkish.ir/wp-json/wp/v2/posts');
     const posts = await res.json();
+    const res2 = await fetch('http://meratkish.ir/wp-json/wp/v2/media');
+    const media = await res2.json();
     return {
         // props: { posts: data['message'], },
         // props: { posts: [{'title': 'avali'},{'title': 'dovom'},{'title': 'sevom'}], },
-        props: { posts },
+        props: { posts, media },
     };
 }
