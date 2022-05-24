@@ -101,7 +101,7 @@ export async function getStaticProps(ctx) {
     // let { DEV_URL, PROD_URL } = process.env;
     // let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/posts`);
     // let data = await response.json();
-    const res = await fetch('http://meratkish.ir/wp-json/wp/v2/posts');
+    const res = await fetch('http://meratkish.ir/wp-json/wp/v2/posts/?per_page=4');
     const posts = await res.json();
     const res2 = await fetch('http://meratkish.ir/wp-json/wp/v2/media');
     const media = await res2.json();
