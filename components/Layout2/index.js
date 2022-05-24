@@ -3,7 +3,7 @@ import IMG from 'next/image';
 import { Layout, Menu, Breadcrumb, Row, Col, Divider } from 'antd';
 import st2 from "./layout2.module.css"
 import Link from 'next/link';
-import { WhatsAppOutlined } from '@ant-design/icons';
+import { WhatsAppOutlined, InstagramOutlined, GoogleOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer } = Layout;
 
@@ -42,8 +42,8 @@ const Layout2 = ({ children }) => (
       </Breadcrumb>
       <div className={st2.site_layout_content}>{ children }</div>
     </Content>
-    <Footer style={{direction:'rtl',backgroundColor:'gray' }}>
-      <Divider style={{border:'2px solid blue'}} />
+    <Footer style={{direction:'rtl',color:'white',backgroundColor:'black' }}>
+      {/* <Divider style={{border:'2px solid blue'}} /> */}
       <Row>
         <Col span={6}>
           <p className={st2.ffont}>تماس با ما</p>
@@ -52,20 +52,32 @@ const Layout2 = ({ children }) => (
           <p>نشانی : تهران - خیابان شهید احمد قصیر (بخارست) - خیابان هشتم - شماره ۱۵ - طبقه سوم</p>
         </Col>
         <Col span={6}>
-          bbb
+          ستون دوم
         </Col>
         <Col span={6}>
-          ccc
+          ستون سوم
         </Col>
         <Col span={6}>
           <p className={st2.ffont}>شبکه های اجتماعی</p>
           <p>
-            <WhatsAppOutlined style={{fontSize:'44px'}} />  واتس اپ
+            <a href='#'>
+              <WhatsAppOutlined style={{fontSize:'34px'}} />  واتس اپ
+            </a>
           </p>
-          
+          <p>
+            <a href='#'>
+              <InstagramOutlined style={{fontSize:'34px'}} />  اینستاگرام
+            </a>
+          </p>
+          <p>
+            <a href='#'>
+              <GoogleOutlined style={{fontSize:'34px'}} />  گوگل
+            </a>
+          </p>
+
         </Col>
       </Row>
-      <Divider orientation='center' style={{fontSize:'small'}} >تمامی حقوق سایت برای ( مرآت کیش ) محفوظ است</Divider>
+      <Divider orientation='center' style={{fontSize:'small',color:'white'}} >تمامی حقوق سایت برای ( مرآت کیش ) محفوظ است</Divider>
     </Footer>
     
   </Layout>
